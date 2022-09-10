@@ -4,6 +4,7 @@ class CreateApartments < ActiveRecord::Migration[6.1]
       t.string :name
       t.string :location
       t.integer :price
+      t.integer :rating
       t.integer :owner_id # this is the foreign key
       t.timestamps  
     end

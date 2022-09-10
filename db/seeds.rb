@@ -17,6 +17,7 @@ puts "🌱 Seeding data..."
             name: Faker::Apartment.name,
             location: Faker::Apartment.location,
             price: rand(100..200), # random number between 100 and 200
+            rating: rand(1..10),
             owner_id: owner.id # use the primary key of the owner as the foreign key
           )
     end
