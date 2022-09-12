@@ -3,6 +3,10 @@ class ApplicationController < Sinatra::Base
   
   # Add your routes here
   #READ owners and apartments
+  get "/" do
+    { message: "Good luck with your project!" }.to_json
+  end
+
   get '/owners' do
     owners = Owner.all
     owners.to_json
@@ -66,4 +70,5 @@ class ApplicationController < Sinatra::Base
     )
     apartment.to_json
   end
+
 end
