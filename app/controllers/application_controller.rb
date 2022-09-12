@@ -25,6 +25,15 @@ class ApplicationController < Sinatra::Base
     owner.to_json(include: :apartments)
   end
 
+  post '/owners' do
+    owner = Owner.create(
+      name: params[:name],
+      age: params[:age],
+      hometown: params[:hometown]
+    )
+  end
+
+
   get '/apartments/price/by_price' do 
 # .by_price method defined in the Apartment class
     apartments = Apartment.by_price
