@@ -6,21 +6,20 @@ puts "🌱 Seeding data..."
 10.times do 
   # create an owner with random data
   owner = Owner.create(
-    name: Faker::Owner.name,
-    age: Faker::Owner.age,
-    hometown: Faker::Owner.hometown
+    name: Faker::Name.name,
+    age: Faker::Number.number(digits: 35),
+    hometown: Faker::Nation.capital_city
   )
-
-        #create between 1 and 5 apartments for each owner
-        rand(1..5).times do 
-            Apartment.create(
-            name: Faker::Apartment.name,
-            location: Faker::Apartment.location,
-            price: rand(100..200), # random number between 100 and 200
-            rating: rand(1..10),
-            owner_id: owner.id # use the primary key of the owner as the foreign key
-          )
-    end
 end
 
+        #create between 1 and 40 apartments for each owner
+        rand(1..40).times do 
+            Apartment.create(
+            name: Faker::Restaurant.name,
+            location: Faker::Nation.capital_city,
+            price: rand(100..200), # random number between 100 and 200
+            rating: rand(1..10),
+            owner_id: rand(1..10) #use the primary key of the owner as the foreign key
+          )
+        end
 puts "✅ Done seeding!"
