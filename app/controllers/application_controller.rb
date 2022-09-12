@@ -73,6 +73,6 @@ class ApplicationController < Sinatra::Base
   delete '/apartments/:id' do
     apartment = Apartment.find(params[:id])    # find the apartment using the ID
     apartment.destroy                           # delete the apartment
-                           # send a response with the deleted apartment as JSON 
+    apartment.to_json            # send a response with the deleted apartment as JSON 
   end
 end
