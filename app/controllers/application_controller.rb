@@ -63,9 +63,8 @@ class ApplicationController < Sinatra::Base
     apartment = Apartment.find(params[:id])
     apartment.update(
       name: params[:name],
-      price: params[:price],
-      rating: params[:rating]
-
+      location: params[:location],
+      price: params[:price]
     )
     apartment.to_json
   end
