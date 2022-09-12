@@ -2,14 +2,22 @@ class ApplicationController < Sinatra::Base
   set :default_content_type, 'application/json'
   
   # Add your routes here
-  #READ owners and apartments
-  get "/" do
-    { message: "Good luck with your project!" }.to_json
+  #READ owners and apartments'
+
+  get '/apartments' do
+    apartment = Apartment.all 
+    apartment.to_json 
   end
 
+  get '/apartments/:id' do
+    apartment = Apartment.find(params[:id])
+    apartment.to_json
+  end
+
+  
   get '/owners' do
-    owners = Owner.all
-    owners.to_json
+    owner = Owner.all
+    owner.to_json
   end
 
   get '/owners/:id' do
@@ -17,31 +25,20 @@ class ApplicationController < Sinatra::Base
     owner.to_json(include: :apartments)
   end
 
-  get '/apartments/by_price' do 
+  get '/apartments/price/by_price' do 
 # .by_price method defined in the Apartment class
     apartments = Apartment.by_price
     apartments.to_json
   end
-
-  get '/apartments/most_expensive' do 
-    # .by_price method defined in the Apartment class
-    apartments = Apartment.by_price.first 
-    apartment.to_json 
-  end
-
-  get '/apartments/by_rating' do 
+  
+  get '/apartments/rating/by_rating' do 
     # .by_rating method is defined in the Apartment class
     apartments = Apartment.by_rating
     apartments.to_json
   end
 
-  get '/apartments/most_expensive' do 
-    apartment = Apartment.by_rating.first
-    apartment.to_json 
-  end
-
-
   #CREATING new apartments
+
   post '/apartments' do
     apartment = Apartment.create(
       name: params[:name],
@@ -70,5 +67,4 @@ class ApplicationController < Sinatra::Base
     )
     apartment.to_json
   end
-
 end

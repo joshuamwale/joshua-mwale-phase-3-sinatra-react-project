@@ -7,6 +7,6 @@ class Apartment < ActiveRecord::Base
     end
 
     def self.by_rating 
-        self.all.order(price: :desc)
+        self.all.order(rating: :desc)
     end
 end
