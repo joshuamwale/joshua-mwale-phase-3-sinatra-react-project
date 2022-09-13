@@ -13,5 +13,7 @@ I have used Sinatra to set up several API routes that can be implemented on apar
 Deployment and live link:
 I have deployed this backend on Heroku to enable continous integration and continous deployment(CI/CD) model of software development. 
 
-The link to live site on Heroku is here: ["https://apartmentsairbnb.herokuapp.com/apartments"]
+The link to backend live site on Heroku is here: ["https://apartmentsairbnb.herokuapp.com/apartments"]
+
+The link to my frontend deployed on Heroku is: ["https://air-bnb-react-frontend.herokuapp.com/"]
 
